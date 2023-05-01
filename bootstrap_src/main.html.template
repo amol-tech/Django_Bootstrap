@@ -102,6 +102,17 @@
   <!-- Plugin file -->
   <script src="{% static './js/addons/datatables.min.js' %}"></script>
   <script>
+    // Data Table Pagination
+    $(document).ready(function () {
+      $('#dtHorizontalVerticalExample').DataTable(
+        {
+          "pageLength": 30,
+          "scrollY": "100vh",
+          "scrollCollapse": true
+        }
+      );
+      $('.dataTables_length').addClass('bs-select');
+    });
   </script>
 </body>
 </html>
