@@ -31,6 +31,7 @@ def main(proj_name,app_name):
     if not(os.path.exists(dir_app_template)):
         os.mkdir(dir_app_template)
     shutil.copyfile(os.path.join(dir_bootstrap_src,'main.html.template'), os.path.join(dir_app_template,'main.html'))
+    print('Successfully configured project with bootstrap')django_bootstrap
 
 args = sys.argv
 print(args)
