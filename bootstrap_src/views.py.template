@@ -3,3 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 def index_main(request):
   return render(request, '#application#/main.html')
+
+# Dummy url for context menu
+def index_context_menu(request):
+  return render(request, '#application#/main.html')
