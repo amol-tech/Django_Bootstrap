@@ -1,0 +1,37 @@
+<div class="menubar-wrapper">
+    <div class="menubar">
+        {% for dict_menu in list_dict_menu %}
+            {% if dict_menu.children %}
+                <li class="item link-submenu">
+                    <div>
+                        <i class="{{dict_menu.icon}}"></i>
+                        <span>{{dict_menu.name}}</span>
+                    </div>
+                    <ul class="sub-menu">
+                        {% for dict_sub_menu in dict_menu.children %}
+                            <li class="item menu-click"
+                                action-url="{% url 'app_demo:index_context_menu' pk='@pk@' %}"
+                                action-title="{{dict_sub_menu.action_title}}"
+                                action-index="{{dict_sub_menu.action_index}}" >
+                                <div>
+                                    <i class="{{dict_sub_menu.icon}}"></i>
+                                    <span>{{dict_sub_menu.name}}</span>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+                <li class="item menu-click"
+                    action-url="{% url 'app_demo:index_context_menu' pk='@pk@' %}"
+                    action-title="{{dict_menu.action_title}}"
+                    action-index="{{dict_menu.action_index}}" >
+                    <div>
+                        <i class="{{dict_menu.icon}}"></i>
+                        <span>{{dict_menu.name}}</span>
+                    </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

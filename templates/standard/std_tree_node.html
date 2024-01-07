@@ -1,0 +1,22 @@
+{% for dict_node in list_dict_node %}
+     {% if dict_node.children %}
+         <li>
+             <div class="row-select node-select tree-node-parent">
+             <i class="fas fa-angle-right rotate"></i>
+             <span class="node-value" style="width:100%">
+                 <i class="{{dict_node.icon}} ic-w mx-1"></i>{{dict_node.name}}</span>
+             </div>
+             <ul class="nested" style="background:alicebluealiceblue;color:black">
+                 {% with list_dict_node=dict_node.children template_name="standard/std_tree_node.html" %}
+                   {% include template_name %}
+                {% endwith %}
+             </ul>
+         </li>
+     {% else %}
+        <li>
+            <div class="row-select node-select">
+                <span class="node-value" style="width:100%"><i class="{{dict_node.icon}} ic-w mr-1"></i>{{dict_node.name}}</span>
+            </div>
+        </li>
+     {% endif %}
+{% endfor %}

@@ -1,0 +1,11 @@
+table : '<table id="%table_id%" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">'
+thead : '<thead class="table-header-color">'
+th : '<th class="th-sm">'
+th_action : '<th class="th-sm">Action</th>'
+tbody : '<tbody>'
+tr : '<tr class="row-select" >'
+td : '<td>'
+a_edit_popup : '<a class="show-standard-popup" data-title="Edit #model_name#" data-popup-url="#url#">'
+i_edit : '<i class="far fa-edit" style="color: red;"></i>'
+a_delete_popup : '<a class="show-standard-popup" data-title="Delete #model_name#" data-popup-url="#url#">'
+

@@ -1,0 +1,6 @@
+jupyterlab==3.3.0
+pandas
+djnago
+django-crispy-forms==1.14.0
+faker
+plotly
