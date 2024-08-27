@@ -1,13 +1,76 @@
+:root {
+  --thm-light-bg-color: aliceblue;
+  --thm-light-title-bg-color: #265481;
+  --thm-light-title-fg-color: white;
+  --thm-light-table-header-bg-color : #5D6D7E;
+  --thm-light-table-header-fg-color : white;
+  --thm-light-row-sel-bg-color : lightblue;
+  --thm-light-vertical-menu-bg-color :  #d0dff0;
+}
+/*
+=========================  Common Element and Class Level CSS Changes ================================
+*/
 body {
     font-size: 0.8em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: aliceblue;
+    background-color: var(--thm-light-bg-color);
+    overflow-y: hidden;
+}
+
+label {
+    margin: 0em;
+}
+
+.navbar {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    background-color:var(--thm-light-title-bg-color);
+}
+
+.navbar.navbar-dark .breadcrumb .nav-item .nav-link, .navbar.navbar-dark .navbar-nav .nav-item .nav-link {
+    color: var(--thm-light-title-fg-color);
+    -webkit-transition: .35s;
+    transition: .35s;
+}
+
+.jumbotron {
+    background-color: var(--thm-light-bg-color);
+    padding: 1rem 1rem;
+}
+
+.form-control {
+    font-size: 0.9rem;
+    height: 1.3rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+.btn{
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    border-radius: 1rem;
+    background-color: var(--thm-light-title-bg-color);
+    color: var(--thm-light-title-fg-color);
+    font-size : 7.5 rem;
+    text-transform :none;
+}
+
+.form-group{
+    margin-bottom: 0.5rem;
+}
+
+/*
+=========================  Table and related Element CSS Customization ================================
+*/
+.th_title{
+    background-color: lightblue;
 }
 
 table td {
     font-size: .7rem;
     font-weight: 200;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    white-space: nowrap;
 }
 table th 
 {
@@ -20,6 +83,7 @@ table th
 table.table-sm th, table.table-sm td {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
+    white-space: nowrap;
 }
 .table{
     margin-bottom : 0rem;
@@ -36,57 +100,54 @@ ul.pagination {
     margin-bottom: 0rem;
 }
 
-label {
-    margin: 0em;
-}
-
 div.dataTables_wrapper div.dataTables_info, div.dataTables_wrapper div.dataTables_paginate {
     padding-top: 1rem;
     padding-bottom: 0rem;
     font-weight: 200;
 }
 
-.navbar {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 0.75;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
 }
 
-.jumbotron {
-    background-color: aliceblue;
-    padding: 1rem 1rem;
+.table-wrap {
+  overflow-y: auto;
 }
 
-.form-control {
-    font-size: 0.9rem;
-    height: 1.3rem;
-    padding-top: 0rem;
-    padding-bottom: 0rem;
+.table-header-color
+{
+    background: var(--thm-light-table-header-bg-color);
+    color: var(--thm-light-table-header-fg-color);
 }
 
-.btn{
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
-    border-radius: 1rem;
-    background-color: #5D6D7E;
-    color: white;
-    font-size : 7.5 rem;
-    text-transform :none;
+.fixed_headers thead th {
+    position: sticky;
+    top: 0;
+    resize: horizontal;
+    overflow: auto;
 }
 
-.form-group{
-    margin-bottom: 0.5rem;
+/*
+=========================  Tree and related Element CSS Customization ================================
+*/
+.treeview-animated.w-20 {
+    height: 100%;
 }
-
 .open {
     color: #265481;
     background-color: #f8f9fa;
 }
 
-
-.treeview-animated.w-20 {
-    height: 100%;
-}
-
+/*
+=========================  Model Dialog and related Element CSS Customization ================================
+*/
 .modal-header {
     display: -ms-flexbox;
     display: flex;
@@ -98,8 +159,8 @@ div.dataTables_wrapper div.dataTables_info, div.dataTables_wrapper div.dataTable
     border-bottom: 1px solid #dee2e6;
     border-top-left-radius: calc(0.3rem - 1px);
     border-top-right-radius: calc(0.3rem - 1px);
-    background-color: #265481;
-    color: white;
+    background-color: var(--thm-light-title-bg-color);
+    color: var(--thm-light-title-fg-color);
 }
 
 .modal-footer {
@@ -117,57 +178,82 @@ div.dataTables_wrapper div.dataTables_info, div.dataTables_wrapper div.dataTable
     height: 25rem;
 }
 
-/* Style the tab */
-.tab {
+/*
+    panel containers css to split the screen horizontally/vertically using splitter ============================================
+*/
+.panel-container-v {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid silver;
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  /* avoid browser level touch actions */
+  xtouch-action: none;
 }
 
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
+.panel-container-h {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid silver;
+  overflow: hidden;
 }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
+.panel-left {
+  flex: 0 0 auto;
+  /* only manually resize */
+  white-space: nowrap;
 }
 
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
+.panel-left-menu {
+  flex: 0 0 auto;
+  /* only manually resize */
+  background-color: var(--thm-light-vertical-menu-bg-color);
+  white-space: nowrap;
 }
 
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+.panel-top {
+  flex: 0 0 auto;
+  /* only manually resize */
+  padding: 5px;
+  white-space: nowrap;
 }
 
-.row_standard{
-    margin-left : 3px;
-    margin-right : 3px;
+.panel-bottom {
+  flex: 1 1 auto;
+  /* resizable */
+  padding: 5px;
 }
 
-.column_standard {
-    padding: 5px;
-    border-top:1px solid;
-    border-bottom:1px solid;
-    border-left:1px solid;
+.panel-right {
+  flex: 1 1 auto;
+  /* resizable */
 }
 
-.column_last {
-    padding: 5px;
-    border:1px solid;
+.splitter-v {
+  flex: 0 0 auto;
+  width: 05px;
+  cursor: col-resize;
+}
+
+.splitter-v-line {
+  flex: 0 0 auto;
+  width: 03px;
+  background: silver;
+  height: 100%;
+  cursor: col-resize;
+}
+
+.splitter-h {
+  flex: 0 0 auto;
+  height: 5px;
+  cursor: row-resize;
+}
+
+.splitter-h-line {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  height: 3px;
+  background: silver;
+  cursor: row-resize;
 }
 
 .div_right {
@@ -175,58 +261,159 @@ div.dataTables_wrapper div.dataTables_info, div.dataTables_wrapper div.dataTable
     justify-content: flex-end;
 }
 
-.th_title{
-    background-color: lightblue;
+.div_pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    padding-right: 30px
 }
 
-.table-wrap {
-  height: 80px;
-  overflow-y: auto;
-  overflow-x: auto;
-  resize: horizontal;
-}
-
-.table-header-color
-{
-    background: #5D6D7E;
-    color:white;
-}
-
-.fixed_headers thead th {
-    position: sticky;
-    top: 0;
-    resize: horizontal;
-    overflow: auto;
-}
-
-.page-link {
-    position: relative;
-    display: block;
-    padding: 0.5rem 0.75rem;
-    margin-left: -1px;
-    line-height: 0.75;
-    color: #007bff;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-}
-
+/*
+    Column Resizer to resize the column for all html tables in general ============================================
+*/
 .resizer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 5px;
-    cursor: col-resize;
-    user-select: none;
+  position: absolute;
+  top: 0;
+  right: -8px;
+  bottom: 0;
+  left: auto;
+  width: 16px;
+  cursor: col-resize;
 }
 
-.resizer:hover,
-.resizing {
-    border-right: 2px solid blue;
+/*
+*/
+.multiselect-dropdown{
+  display: inline-block;
+  padding: 2px 5px 0px 5px;
+  border-radius: 4px;
+  border: solid 1px #ced4da;
+  background-color: white;
+  position: relative;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 16px 12px;
+}
+.multiselect-dropdown span.optext, .multiselect-dropdown span.placeholder{
+  margin-right:0.5em;
+  margin-bottom:2px;
+  padding:1px 0;
+  border-radius: 4px;
+  display:inline-block;
+}
+.multiselect-dropdown span.optext{
+  background-color:lightgray;
+  padding:1px 0.75em;
+}
+.multiselect-dropdown span.optext .optdel {
+  float: right;
+  margin: 0 -6px 1px 5px;
+  font-size: 0.7em;
+  margin-top: 2px;
+  cursor: pointer;
+  color: #666;
+}
+.multiselect-dropdown span.optext .optdel:hover { color: #c66;}
+.multiselect-dropdown span.placeholder{
+  color:#ced4da;
+}
+.multiselect-dropdown-list-wrapper{
+  box-shadow: gray 0 3px 8px;
+  z-index: 100;
+  padding:2px;
+  border-radius: 4px;
+  border: solid 1px #ced4da;
+  display: none;
+  margin: -1px;
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  background: white;
+}
+.multiselect-dropdown-list-wrapper .multiselect-dropdown-search{
+  margin-bottom:5px;
+}
+.multiselect-dropdown-list{
+  padding:2px;
+  height: 15rem;
+  overflow-y:auto;
+  overflow-x: hidden;
+}
+.multiselect-dropdown-list::-webkit-scrollbar {
+  width: 6px;
+}
+.multiselect-dropdown-list::-webkit-scrollbar-thumb {
+  background-color: #bec4ca;
+  border-radius:3px;
 }
 
-.resizable {
-    border: 1px solid gray;
-    height: 100px;
-    width: 100px;
-    position: relative;
+.multiselect-dropdown-list div{
+  padding: 5px;
+}
+.multiselect-dropdown-list input{
+  height: 1.15em;
+  width: 1.15em;
+  margin-right: 0.35em;
+}
+.multiselect-dropdown-list div.checked{
+}
+.multiselect-dropdown-list div:hover{
+  background-color: #ced4da;
+}
+.multiselect-dropdown span.maxselected {width:100%;}
+.multiselect-dropdown-all-selector {border-bottom:solid 1px #999;}
+
+
+/**
+**/
+.gradient-custom-2 {
+/* fallback for old browsers */
+background: #fccb90;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
+#ee7724, #d8363a, #dd3675, #b44593
+*/
+background: linear-gradient(to right, #87afc4, #47809e, #16455e, #0b3145);
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+@media (min-width: 769px) {
+.gradient-custom-2 {
+border-top-right-radius: .3rem;
+border-bottom-right-radius: .3rem;
+}
+}
+
+.vertical-menu {
+  width: 200px;
+}
+
+/*
+    Vertical Menus ============================================
+*/
+.vertical-menu a {
+  background-color: var(--thm-light-vertical-menu-bg-color);
+  color: black;
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+.vertical-menu a.active {
+  background-color: #265481;
+  color: white;
 }
